@@ -1,1 +1,23 @@
-<h1>投稿編集ページ</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>Editing Book</h2>
+    <%= form_with model: @book,local:true do |f| %>
+      <div class="form-group">
+        <%= f.label :Title, class: "book_title" %>
+        <%= f.text_field :title, class: "form-control book_title" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :Opinion, class: "book_opinion" %>
+        <%= f.text_area :body, class: "form-control book_body" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Update Book", class: "btn btn-success" %>
+      </div>
+      <% end %>
+      <%= link_to "Show", book_path(@book.id), class: "book_#{@book.id}" %>
+      |
+      <%= link_to "Back", books_path, class: "book" %>
+    </div>
+  </div>
+</div>
